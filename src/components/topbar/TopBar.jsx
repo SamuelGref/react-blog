@@ -14,7 +14,7 @@ const TopBar = () => {
                    <li className="topListItem">Home</li> 
                    <li className="topListItem">About</li>
                    <li className="topListItem">Contact</li>
-                   <li className="topListItem">Home</li>
+                   <li className="topListItem">Write</li>
                    <li className="topListItem">Logout</li>
                 </ul>
             </div>
