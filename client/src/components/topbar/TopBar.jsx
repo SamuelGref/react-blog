@@ -3,7 +3,7 @@ import "./topbar.css"
 
 
 const TopBar = () => {
-    const user = false;
+    const user = true;
 
     return (
         <div className="top">
@@ -31,17 +31,17 @@ const TopBar = () => {
                     user ? (
                         <img
                             className="topImg"
-                            src="https://scontent-lga3-1.xx.fbcdn.net/v/t1.6435-9/202844438_4372144286130289_864136507009950365_n.jpg?_nc_cat=103&ccb=1-5&_nc_sid=09cbfe&_nc_ohc=mRPI2uOIdZkAX-cHpqN&tn=pAPKX4fpfFrNR502&_nc_ht=scontent-lga3-1.xx&oh=175ac9dc29e77af6810424c1a7014547&oe=615C82F7" alt="" />
+                            src="https://images.pexels.com/photos/614810/pexels-photo-614810.jpeg?cs=srgb&dl=pexels-simon-robben-614810.jpg&fm=jpg" alt="" />
                     ) : (
-                            <ul className='topList'>
-                                <li className="topListItem">
-                                    <Link className='link' to='/login'>LOGIN</Link>
-                                </li>
-                                <li className="topListItem">
-                                    <Link className='link' to='/register'>REGISTER</Link>
-                                </li>
-                            </ul>
-                        )
+                        <ul className='topList'>
+                            <li className="topListItem">
+                                <Link className='link' to='/login'>LOGIN</Link>
+                            </li>
+                            <li className="topListItem">
+                                <Link className='link' to='/register'>REGISTER</Link>
+                            </li>
+                        </ul>
+                    )
                 }
 
                 <i className=" topSearchIcon fas fa-search"></i>
