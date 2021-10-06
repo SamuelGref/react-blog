@@ -1,27 +1,43 @@
 import "./singlePost.css";
+import { useState } from "react";
+import axios from "axios";
+import { useLocation } from "react-router";
+import { useEffect  } from "react";
 
 
 const SinglePost = () => {
+    const location = useLocation()
+    const path = location.pathname.split("/")[2];
+    const [post, setPost] = useState({});
 
+    useEffect(() => {
+        const getPost = async () => {
+          const res = await axios.get("/posts/" + path);
+          setPost(res.data);
+          
+        };
+        getPost();
+      }, [path]);
     return (
         <div className='singlePost'>
             <div className="singlePostWraper">
-                <img className="singlePostImg" src="https://images.pexels.com/photos/2078265/pexels-photo-2078265.jpeg?auto=compress&cs=tinysrgb&dpr=3&h=750&w=1260" alt="" />
+                {post.photo && (
+                     <img className="singlePostImg" src={post.photo} alt="" />
+                )}
+               
             </div>
             <h1 className="inglePostTitle">
-                Lorem ipsum dolor sit amet
+                {post.title}
                 <div className="singlePostEdit">
                     <i className=" singlePostIcon far fa-edit"></i>
                     <i className=" singlePostIcon far fa-trash-alt"></i>
                 </div>
             </h1>
             <div className="singlePostInfo">
-                <span className='singlePostAuthor'> Author: <b>Safak</b></span>
-                <span className='singlePostDate'> 1 hour ago </span>
+                <span className='singlePostAuthor'> Author: <b>{post.username}</b></span>
+                <span className='singlePostDate'> {new Date(post.createdAt).toDateString()}</span>
             </div>
-            <p className='singlePostDesc'>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Architecto recusandae repellendus omnis quo vel repudiandae, harum libero accusamus. Ducimus labore necessitatibus atque, cupiditate perspiciatis aliquam. Non deserunt laboriosam vero sunt?
-            Lorem ipsum dolor sit amet consectetur, adipisicing elit. Architecto recusandae repellendus omnis quo vel repudiandae, harum libero accusamus. Ducimus labore necessitatibus atque, cupiditate perspiciatis aliquam. Non deserunt laboriosam vero sunt?
-            Lorem ipsum dolor sit amet consectetur, adipisicing elit. Architecto recusandae repellendus omnis quo vel repudiandae, harum libero accusamus. Ducimus labore necessitatibus atque, cupiditate perspiciatis aliquam. Non deserunt laboriosam vero sunt?
+            <p className='singlePostDesc'>{post.desc}
                 
             </p>
         </div>
