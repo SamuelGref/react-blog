@@ -11,11 +11,19 @@
     margin-top:10px ;
 }
 
-.topLeft,.topRight {
-    flex: 3;   
+.topLeft {
+    flex: 1;   
     display: flex;
     align-items: center;
     justify-content: center;
+    
+}
+
+.topRight{
+    flex: 1;   
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
 }
 
 .topCenter {
@@ -34,6 +42,7 @@
     height: 40px;
     border-radius: 50%;
     object-fit: contain;
+    cursor: pointer;
 
 }
 
