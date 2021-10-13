@@ -58,6 +58,7 @@ const Write = () => {
                         onChange={e=>setTitle(e.target.value)}
                     />
                 </div>
+                
                 <div className="writeFormGroup">
                     <textarea
                         className="writeInput writeText"
@@ -67,9 +68,11 @@ const Write = () => {
                         onChange={e=>setDesc(e.target.value)}
                     />
                 </div>
+                
                 <button className="writeSubmit" type="submit">
                     Publish
         </button>
+        
             </form>
         </div>
     )
